@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewScript : MonoBehaviour
+public class TankSpawner : MonoBehaviour
 {
+    [SerializeField] private GameObject tankObject;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Hello World");
+        Instantiate(tankObject, transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame
