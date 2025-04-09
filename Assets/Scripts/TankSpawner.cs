@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class TankSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject tankObject;
-    // Start is called before the first frame update
+    [SerializeField] private TankView tankObject;
+
     void Start()
     {
-        Instantiate(tankObject, transform.position, Quaternion.identity);
+        CreateTank();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CreateTank()
     {
-        Debug.Log("Hello World");
+        TankModel tankModel = new TankModel();
+        TankController tankController = new TankController(tankModel, tankObject);
     }
 }
