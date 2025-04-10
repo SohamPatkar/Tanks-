@@ -6,6 +6,7 @@ public class TankSpawner : MonoBehaviour
 {
     [SerializeField] private TankView tankObject;
 
+
     void Start()
     {
         CreateTank();
@@ -13,7 +14,7 @@ public class TankSpawner : MonoBehaviour
 
     public void CreateTank()
     {
-        TankModel tankModel = new TankModel();
+        TankModel tankModel = new TankModel(10, 35);
         TankController tankController = new TankController(tankModel, tankObject);
     }
 }
