@@ -15,19 +15,32 @@ public class TankSpawner : MonoBehaviour
         public Material tankColor;
     }
 
-    public List<Tank> tanks;    
+    public Tank[] tanks;    
 
     [SerializeField] private TankView tankObject;
 
-
-    void Start()
+    private void Start()
     {
-        CreateTank();
+        
     }
 
-    public void CreateTank()
+    public void CreateTank(TankTypes tanktype)
     {
-        TankModel tankModel = new TankModel(tanks[0].movementSpeed, tanks[0].rotationSpeed, tanks[0].tankType, tanks[0].tankColor);
-        TankController tankController = new TankController(tankModel, tankObject);
+        //spawning a particular tank
+        if (tanktype == TankTypes.GREENTANK)
+        {
+            TankModel tankModel = new TankModel(tanks[0].movementSpeed, tanks[0].rotationSpeed, tanks[0].tankType, tanks[0].tankColor);
+            TankController tankController = new TankController(tankModel, tankObject);
+        }
+        else if (tanktype == TankTypes.BLUETANK)
+        {
+            TankModel tankModel = new TankModel(tanks[1].movementSpeed, tanks[1].rotationSpeed, tanks[1].tankType, tanks[1].tankColor);
+            TankController tankController = new TankController(tankModel, tankObject);
+        }
+        else if (tanktype == TankTypes.REDTANK)
+        {
+            TankModel tankModel = new TankModel(tanks[2].movementSpeed, tanks[2].rotationSpeed, tanks[2].tankType, tanks[2].tankColor);
+            TankController tankController = new TankController(tankModel, tankObject);
+        }
     }
 }
