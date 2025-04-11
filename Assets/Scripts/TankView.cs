@@ -12,6 +12,8 @@ public class TankView : MonoBehaviour
 
     private Camera cam;
 
+    public MeshRenderer[] tankBody;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,5 +56,13 @@ public class TankView : MonoBehaviour
     public Rigidbody GetRigidBody()
     {
         return rb;
+    }
+
+    public void SetColor(Material color)
+    {
+        for(int i = 0; i< tankBody.Length; i++)
+        {
+            tankBody[i].material = color;
+        }
     }
 }
